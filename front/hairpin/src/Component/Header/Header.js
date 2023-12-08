@@ -3,20 +3,20 @@ import "./Header.css";
 
 export default function Header() {
   return (
-    <div className="group-3">
-      <div className="overlap-group-wrapper">
-        <div className="overlap-group-2">
+    <div className="Header-Container">
+      <div className="Search-Bar-Wrapper">
+        <div className="Search-Bar">
           <img
-            className="vector-2"
-            alt="Vector"
+            className="glass"
+            alt="Search Glass Icon"
             src="https://c.animaapp.com/4IIPmODq/img/vector.svg"
           />
-          <div className="text-wrapper-10">지역을 검색하세요</div>
+          <div className="Search-Input">지역을 검색하세요</div>
         </div>
       </div>
       <img
-        className="group-4"
-        alt="Group"
+        className="User-Icon"
+        alt="User Icon"
         src="https://c.animaapp.com/4IIPmODq/img/group-48@2x.png"
       />
       <div className="logo-hairpin">Hairpin</div>
