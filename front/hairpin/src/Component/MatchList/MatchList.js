@@ -1,5 +1,6 @@
 import React from "react";
 import "./MatchList.css";
+import { useNavigate } from "react-router-dom";
 
 const matches = [
   {
@@ -64,6 +65,12 @@ export default function MatchList() {
 }
 
 function MatchItem({ time, place, gameType, gender, buttonText }) {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    navigate("/match-reserve");
+  }
+
   return (
     <div className="match-item">
       <div className="match-time">{time}</div>
@@ -73,7 +80,7 @@ function MatchItem({ time, place, gameType, gender, buttonText }) {
       <div className="match-list-button-wrapper">
         <div
           className="match-list-button-text-wrapper"
-          onClick={() => alert("신청되었습니다.")}
+          onClick={() => handleClick()}
         >
           {buttonText}
         </div>
