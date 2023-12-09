@@ -1,0 +1,56 @@
+.match-date-container {
+  position: absolute;
+  left: 254px;
+  top: 170px;
+  width: 905px;
+  height: 111px;
+  display: flex;
+}
+
+.days-container {
+  position: absolute;
+  top: 0;
+  left: 45px;
+  width: 860px;
+  height: 110px;
+  display: flex;
+}
+
+.day-element {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 180%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 118px;
+  height: 110px;
+}
+
+.selected {
+  /* 선택된 날짜의 스타일 */
+  background-color: #87bdfd;
+  border-radius: 25px;
+  color: rgb(255, 255, 255);
+}
+
+.arrow-icon {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width: 28px;
+  height: 28px;
+}
+
+.right-side-arrow {
+  height: 28px;
+  position: absolute;
+  top: 50px;
+  width: 28px;
+  right: 0;
+}
