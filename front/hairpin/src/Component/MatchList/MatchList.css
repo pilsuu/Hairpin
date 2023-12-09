@@ -1,0 +1,104 @@
+.MatchList-view {
+  /* height: 509px; */
+  left: 339px;
+  position: absolute;
+  top: 373px;
+  width: 770px;
+  display: flex;
+  flex-direction: column;
+}
+
+.match-item {
+  background-color: #ffffff;
+  border-top: 1px solid #979797;
+  display: flex;
+  height: 46px;
+  padding: 20px;
+  width: 100%;
+}
+
+.match-time {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 17px;
+  font-weight: 600;
+  height: 29px;
+  left: 12px;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  position: relative;
+  top: 10px;
+  width: 79px;
+}
+
+.match-place {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 15px;
+  font-weight: 600;
+  height: 29px;
+  left: 96px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 7px;
+  width: 196px;
+}
+
+.match-type {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 11px;
+  font-weight: 600;
+  height: 29px;
+  left: -90px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 35px;
+  width: 64px;
+}
+
+.gender-type {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 11px;
+  font-weight: 600;
+  height: 29px;
+  left: -100px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 35px;
+  width: 64px;
+}
+
+.match-list-button-wrapper {
+  height: 48px;
+  position: relative;
+  right: -250px;
+  /* top: 20px; */
+  width: 110px;
+  background-color: #5d9eff;
+  border-radius: 10px;
+  display: flex;
+}
+
+.match-list-button-text-wrapper {
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center; /* 세로 방향 가운데 정렬 */
+  color: #ffffff;
+  font-family: "Poppins", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  height: 48px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 0;
+  width: 108px;
+}
