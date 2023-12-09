@@ -10,7 +10,6 @@ export default function MatchDate() {
   const handleDateClick = (clickedDate) => {
     setSelectedDate(clickedDate.getDate());
     setSelectedUTCDate(clickedDate);
-    console.log("selectedUTCDate: ", selectedUTCDate);
   };
 
   // 화살표 클릭 시 호출되는 함수
@@ -25,7 +24,6 @@ export default function MatchDate() {
     ) {
       newDate.setDate(currentDate.getDate() + 7);
     }
-    console.log("newDate: ", newDate);
     setCurrentDate(newDate);
   };
 
