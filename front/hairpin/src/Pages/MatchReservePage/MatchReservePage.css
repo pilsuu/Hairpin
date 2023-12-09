@@ -1,0 +1,301 @@
+.screen-mch {
+  background-color: #fbfbfb;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.screen-mch .div-mch {
+  background-color: #fbfbfb;
+  height: 900px;
+  position: relative;
+  width: 1440px;
+}
+
+.screen-mch .overlap-mch {
+  height: 791px;
+  left: 266px;
+  position: absolute;
+  top: 109px;
+  width: 930px;
+}
+
+.screen-mch .match-place {
+  height: 369px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 908px;
+}
+
+.screen-mch .Info {
+  height: 425px;
+  left: 0;
+  position: absolute;
+  top: 380px;
+  width: 930px;
+}
+
+.screen-mch .Right-Side {
+  background-color: #ffffff;
+  height: 425px;
+  left: 504px;
+  position: absolute;
+  top: 0;
+  width: 404px;
+}
+
+.screen-mch .Date {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 21px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 75px;
+  width: 275px;
+}
+
+.screen-mch .Address-wrapper {
+  height: 44px;
+  left: 21px;
+  position: absolute;
+  top: 185px;
+  width: 367px;
+}
+
+.screen-mch .Address {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 275px;
+}
+
+.screen-mch .Parking-wrapper {
+  height: 44px;
+  left: 214px;
+  position: absolute;
+  top: 0;
+  width: 153px;
+}
+
+.screen-mch .parking {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 38px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 113px;
+}
+
+.screen-mch .parking-icon {
+  height: 26px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 30px;
+}
+
+.screen-mch .Register-wrapper {
+  height: 60px;
+  left: 31px;
+  position: absolute;
+  top: 317px;
+  width: 301px;
+}
+
+.screen-mch .price {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 8px;
+  width: 207px;
+}
+
+.screen-mch .register-button-wrapper {
+  height: 60px;
+  left: 164px;
+  position: absolute;
+  top: 0;
+  width: 137px;
+}
+
+.screen-mch .register-button-text-wrapper {
+  background-color: #5d9eff;
+  border-radius: 10px;
+  height: 60px;
+  position: relative;
+  width: 135px;
+}
+
+.screen-mch .reg-button-text {
+  color: #ffffff;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  height: 60px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 12px;
+  width: 135px;
+}
+
+.screen-mch .place-name {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 30px;
+  font-weight: 400;
+  left: 19px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 119px;
+  width: 367px;
+}
+
+.screen-mch .match-type {
+  background-color: #ffffff;
+  height: 158px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 479px;
+}
+
+.screen-mch .match-type-intro {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 31px;
+  width: 275px;
+}
+
+.screen-mch .mch-type {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 106px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 94px;
+  width: 88px;
+}
+
+.screen-mch .mch-gender-type {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 278px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 97px;
+  width: 109px;
+}
+
+.screen-mch .gender-img {
+  height: 36px;
+  left: 227px;
+  position: absolute;
+  top: 91px;
+  width: 37px;
+}
+
+.screen-mch .badminton-img {
+  height: 33px;
+  left: 40px;
+  position: absolute;
+  top: 94px;
+  width: 51px;
+}
+
+.screen-mch .Noti-wrapper {
+  background-color: #ffffff;
+  height: 248px;
+  left: 0;
+  position: absolute;
+  top: 177px;
+  width: 479px;
+}
+
+.screen-mch .Noti {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 14px;
+  width: 275px;
+}
+
+.screen-mch .Noti-refund {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 45px;
+  width: 413px;
+}
+
+.screen-mch .Noti-cancel {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 124px;
+  width: 275px;
+}
+
+.screen-mch .Noti-cancel-explain {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 155px;
+  width: 413px;
+}
