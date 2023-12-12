@@ -27,4 +27,9 @@ public class MatchInfoController {
     public List<MatchInfo> matchLists() {
         return matchInfoService.list();
     }
+
+    @GetMapping("/matchLists2")
+    public String matchLists2() {
+        return "hello";
+    }
 }
