@@ -19,7 +19,7 @@ public class Reservation {
     @DateTimeFormat(pattern = "YYYY-MM-DD")
     private LocalDate usageDate;
 
-    @DateTimeFormat
+    // @DateTimeFormat
     private Integer matchTime;
 
     @Column(columnDefinition = "int default 2")
