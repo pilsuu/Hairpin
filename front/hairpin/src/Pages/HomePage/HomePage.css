@@ -18,3 +18,34 @@
   position: absolute;
   width: 930px;
 }
+
+.badminton-icon-wrapper {
+  height: 70px;
+  left: 680px;
+  position: absolute;
+  top: 25px;
+  width: 140px;
+}
+
+.badminton-icon {
+  height: 52px;
+  left: 14px;
+  position: absolute;
+  top: 9px;
+  width: 52px;
+}
+
+.intro-text {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 50px;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 30px;
+  width: 138px;
+}
