@@ -27,5 +27,4 @@ public class MatchInfoController {
     public List<MatchInfo> matchLists() {
         return matchInfoService.list();
     }
-
 }

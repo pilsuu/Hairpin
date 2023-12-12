@@ -24,5 +24,4 @@ public class Court {
 
     private Boolean hasParkingLot;
 
-
 }

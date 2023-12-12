@@ -35,7 +35,4 @@ public class Reservation {
     })
     private Court courtId;
 
-
-
-
 }
