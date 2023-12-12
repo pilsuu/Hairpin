@@ -1,4 +1,5 @@
 package hairpin.demo.entity;
+
 import jakarta.persistence.*;
 import lombok.Data;
 

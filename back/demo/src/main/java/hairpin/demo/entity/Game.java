@@ -12,12 +12,12 @@ public class Game {
 
     @Id
     @ManyToOne
-    @JoinColumn(name="reservation_id", nullable = false)
+    @JoinColumn(name = "reservation_id", nullable = false)
     private Reservation reservationId;
 
     @Id
     @ManyToOne
-    @JoinColumn(name="user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User userId;
 
 
