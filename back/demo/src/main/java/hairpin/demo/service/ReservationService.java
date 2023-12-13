@@ -17,4 +17,8 @@ public class ReservationService {
     public List<MatchListDTO> reservationListTest(LocalDate Date) {
         return reservationRepository.findMatchListByUsageDate(Date);
     }
+
+    public MatchListDTO getMatch(Integer id) {
+        return reservationRepository.findMatchByReservationId(id);
+    }
 }

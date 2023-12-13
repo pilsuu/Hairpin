@@ -30,26 +30,19 @@ public class MatchInfoController {
     @Autowired
     private ReservationService reservationService;
 
-    @GetMapping("/matchLists")
-    public List<MatchInfo> matchLists() {
-        return matchInfoService.list();
-    }
-
     @GetMapping("/matchLists2")
     public String matchLists2() {
         return "hello";
     }
 
-    @GetMapping("/time")
-    public LocalDate time() {
-        LocalDate currentDate = LocalDate.now();
-        return currentDate;
-    }
-
-    @GetMapping("/test")
+    @GetMapping("/matchLists")
     public List<MatchListDTO> getMatchListDTO(@RequestParam LocalDate time) {
 
         return reservationService.reservationListTest(time);
     }
 
+    @GetMapping("/match")
+    public MatchListDTO getMatchDTO(@RequestParam Integer id) {
+        return reservationService.getMatch(id);
+    }
 }

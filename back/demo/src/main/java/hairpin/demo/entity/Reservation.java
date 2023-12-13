@@ -29,6 +29,8 @@ public class Reservation {
 
     private String matchTypeGender;
 
+    private String matchTypePlaying;
+
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "court_id", nullable = false, updatable = false)

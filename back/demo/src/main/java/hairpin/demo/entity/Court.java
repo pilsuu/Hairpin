@@ -23,5 +23,4 @@ public class Court {
     private Integer price;
 
     private Boolean hasParkingLot;
-
 }
