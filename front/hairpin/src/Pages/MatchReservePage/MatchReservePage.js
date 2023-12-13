@@ -1,16 +1,32 @@
 import React from "react";
 import Header from "../../Component/Header/Header";
 import "./MatchReservePage.css";
+import { useRecoilValue } from "recoil";
+import { matchDetailAttr } from "../../States/atoms";
 
-export default function MatchReservePage({
-  mchDate,
-  mchAddress,
-  parking,
-  price,
-  placeName,
-  mchPlayType,
-  mchGenderType,
-}) {
+export default function MatchReservePage({}) {
+  const matchData = useRecoilValue(matchDetailAttr);
+  console.log("matchData: ", matchData);
+
+  const dateTranslator = () => {
+    // 입력된 날짜를 Date 객체로 변환
+    const dateObject = new Date(matchData.usageDate);
+
+    // 월, 일, 요일 정보 얻기
+    const month = dateObject.toLocaleString("ko-KR", { month: "long" }); // 'long' 옵션은 월의 전체 이름을 얻습니다.
+    const dayOfMonth = dateObject.getDate();
+    const dayOfWeek = dateObject.toLocaleString("ko-KR", { weekday: "long" }); // 'long' 옵션은 요일의 전체 이름을 얻습니다.
+
+    // 변형된 문자열 생성
+    const resultString = `${month} ${dayOfMonth}일 ${dayOfWeek}`;
+
+    // 결과 출력
+    console.log(resultString);
+    return resultString;
+  };
+
+  const matchDate = dateTranslator();
+
   return (
     <div className="screen-mch">
       <div className="div-mch">
@@ -23,11 +39,13 @@ export default function MatchReservePage({
           />
           <div className="Info">
             <div className="Right-Side">
-              <div className="Date">11월 4일 토요일 10:00</div>
+              <div className="Date">{matchDate}</div>
               <div className="Address-wrapper">
-                <div className="Address">강남구 15길 42로</div>
+                <div className="Address">{matchData.location}</div>
                 <div className="Parking-wrapper">
-                  <div className="parking">무료 주차</div>
+                  <div className="parking">
+                    {matchData.hasParkingLot ? "주차 가능" : "주차 불가"}
+                  </div>
                   <img
                     className="parking-icon"
                     alt="parking"
@@ -48,12 +66,14 @@ export default function MatchReservePage({
                   </div>
                 </div>
               </div>
-              <div className="place-name">강남 해피배드민턴장</div>
+              <div className="place-name">{matchData.name}</div>
             </div>
             <div className="match-type">
               <div className="match-type-intro">매치 정보</div>
-              <div className="mch-type">단식 경기</div>
-              <div className="mch-gender-type">남자 전용</div>
+              <div className="mch-type">{matchData.matchTypePlaying} 경기</div>
+              <div className="mch-gender-type">
+                {matchData.matchTypeGender} 전용
+              </div>
               <img
                 className="gender-img"
                 alt="Gender"

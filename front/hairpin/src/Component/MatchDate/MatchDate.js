@@ -1,15 +1,43 @@
 import React from "react";
 import "./MatchDate.css";
 import { useState, useEffect } from "react";
+import { useRecoilValue, useRecoilState } from "recoil";
+import { currentDateMatches } from "../../States/atoms";
 
 export default function MatchDate() {
   const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedUTCDate, setSelectedUTCDate] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
+  const [matchLists, setMatchLists] = useRecoilState(currentDateMatches);
 
-  const handleDateClick = (clickedDate) => {
+  const request = async (date) => {
+    let response;
+    const URL = `http://localhost:8080/matchLists?time=${date}`;
+    response = await fetch(URL, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        // Authorization: `Bearer ${authKey}`,
+      },
+    }).then(async (res) => {
+      let parsedData = await res.json();
+      //console.log("matchLists: ", parsedData);
+      return parsedData;
+    });
+    return response;
+  };
+
+  const handleDateClick = async (clickedDate) => {
     setSelectedDate(clickedDate.getDate());
-    setSelectedUTCDate(clickedDate);
+    const formattedDate = `${clickedDate.getFullYear()}-${(
+      clickedDate.getMonth() + 1
+    )
+      .toString()
+      .padStart(2, "0")}-${clickedDate.getDate().toString().padStart(2, "0")}`;
+
+    //console.log("formattedDate: ", formattedDate);
+    //console.log("url: ", URL);
+    const matchListsData = await request(formattedDate);
+    setMatchLists(matchListsData);
   };
 
   // 화살표 클릭 시 호출되는 함수
@@ -52,7 +80,7 @@ export default function MatchDate() {
   };
 
   // 컴포넌트가 마운트되거나 currentDate가 변경될 때 실행되는 로직
-  useEffect(() => {}, [currentDate, selectedDate]);
+  useEffect(() => {}, [currentDate, selectedDate, matchLists]);
 
   return (
     <div className="match-date-container">

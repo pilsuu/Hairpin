@@ -15,18 +15,17 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
 
-    // @Query("SELECT NEW hairpin.demo.dto.MatchListDTO(c.name, r.usageDate,
-    // r.matchTime, r.matchTypeGender) " +
-    // "FROM Reservation r " +
-    // "INNER JOIN r.courtId c " +
-    // "WHERE c.id = :courtId")
-    // List<MatchListDTO> findReservationsWithCourtName(@Param("courtId") Integer
-    // courtId);
-
-    @Query("SELECT NEW hairpin.demo.dto.MatchListDTO(c.name, r.usageDate, r.matchTime, r.matchTypeGender) " +
+    @Query("SELECT NEW hairpin.demo.dto.MatchListDTO(r.id, r.usageDate, r.matchTime, r.matchTypeGender, r.matchTypePlaying, c.id, c.name, c.location, c.price, c.hasParkingLot) "
+            +
             "FROM Reservation r " +
             "JOIN r.courtId c " +
-            "WHERE r.usageDate = :usageDate")
+            "WHERE r.isReserved = false AND r.usageDate = :usageDate")
     List<MatchListDTO> findMatchListByUsageDate(@Param("usageDate") LocalDate usageDate);
 
+    @Query("SELECT NEW hairpin.demo.dto.MatchListDTO(r.id, r.usageDate, r.matchTime, r.matchTypeGender, r.matchTypePlaying, c.id, c.name, c.location, c.price, c.hasParkingLot) "
+            +
+            "FROM Reservation r " +
+            "JOIN r.courtId c " +
+            "WHERE r.isReserved = false AND r.id = :reservationId")
+    MatchListDTO findMatchByReservationId(@Param("reservationId") Integer reservationId);
 }
