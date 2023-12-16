@@ -28,4 +28,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
             "JOIN r.courtId c " +
             "WHERE r.isReserved = false AND r.id = :reservationId")
     MatchListDTO findMatchByReservationId(@Param("reservationId") Integer reservationId);
+
+    @Query("SELECT COUNT(g) FROM Game g WHERE g.reservationId = :reservationId")
+    Integer findReservationCnt(@Param("reservationId") Reservation reservation);
 }

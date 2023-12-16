@@ -1,11 +1,16 @@
 package hairpin.demo.controller;
 
+import hairpin.demo.dto.BookInfoDTO;
 import hairpin.demo.entity.Game;
 import hairpin.demo.entity.GameID;
+import hairpin.demo.entity.Reservation;
+import hairpin.demo.enumerate.MatchType;
 import hairpin.demo.repository.GameRepository;
 import hairpin.demo.repository.ReservationRepository;
 import hairpin.demo.repository.UserRepository;
+import hairpin.demo.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -27,32 +32,56 @@ public class BookingController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ReservationService reservationService;
+
+    @Value("${auth.api.url}")
+    String apiUrl;
+
     @GetMapping("/book")
-    public void getBookInfo(@RequestHeader HttpHeaders header, @RequestBody GameID gameId) {
+    public ResponseEntity getBookInfo(@RequestHeader HttpHeaders header, @RequestBody BookInfoDTO bookInfoDTO) {
 
         // React에서 전달한 JWT
         String jwtToken = header.getFirst("Authorization");
 
         if (jwtToken != null) {
             if (requestAuth(jwtToken)) {
-                Game games = new Game();
-                games.setUserId(userRepository.getReferenceById(gameId.getUserId()));
-                games.setReservationId(reservationRepository.getReferenceById(gameId.getReservationId()));
+                Reservation reservation = reservationRepository.getReferenceById(bookInfoDTO.getReservationId());
+                String matchType = reservation.getMatchTypePlaying();
+                String matchGender = reservation.getMatchTypeGender();
+                String userGender = bookInfoDTO.getGender();
 
-                gameRepository.save(games);
+                if(matchGender.equals("MIXED") || matchGender.equals(userGender)){
+                    if(!gameRepository.existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
+                        Game games = new Game();
+                        games.setUserId(userRepository.getReferenceById(bookInfoDTO.getUserId()));
+                        games.setReservationId(reservation);
+                        gameRepository.save(games);
+                    }
+                    else{
+                        return ResponseEntity.status(808).body("You are already booked");
+                    }
+
+                    Integer numOfPeople = reservationService.getNumberOfReservations(reservation);
+
+                    if(numOfPeople == MatchType.valueOf(matchType).getNum()){
+                        reservationService.update(reservation.getId(), true);
+                    }
+                    return ResponseEntity.ok("book complete");
+                }
+                return ResponseEntity.status(802).body("wrong select match type"); // 경기 성별 잘못 선택했을 때
             }
+            return ResponseEntity.status(801).body("You are not valid member"); // 유효한 회원이 아님
         }
+        return ResponseEntity.status(800).body("You are not logged in");  //로그인 상태가 아님
     }
 
     //Django 에 HTTP Request 로 유효한 jwt 토큰인지 확인
     public Boolean requestAuth(String jwtToken) {
-        final String apiUrl = "http://localhost:8000/users/auth/";
 
         HttpHeaders headerForDjango = new HttpHeaders();
 
         headerForDjango.set("Authorization", jwtToken);
-
-        System.out.println(headerForDjango);
 
         // HTTP 요청을 위한 RestTemplate 생성
         RestTemplate restTemplate = new RestTemplate();

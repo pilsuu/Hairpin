@@ -26,6 +26,11 @@ ext {
 	set('snippetsDir', file("build/generated-snippets"))
 }
 
+bootJar{
+	archivesBaseName = 'hairpin'
+	archiveFileName = 'hairpin-application.jar'
+}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-data-redis'

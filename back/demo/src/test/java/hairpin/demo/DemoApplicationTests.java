@@ -64,7 +64,7 @@ class DemoApplicationTests {
 	@Order(2)
 	void userInsert() {
 		Random random = new Random();
-		String[] gender = {"남성", "여성"};
+		String[] gender = {"FEMALE", "MALE"};
 
 		for(int i = 0 ; i< 10; i++){
 			User randomUser = new User();
@@ -112,7 +112,8 @@ class DemoApplicationTests {
 		Random random = new Random();
 
 		Boolean[] isReserved = {true, false};
-		String[] matchType = {"단식", "남복", "여복", "혼복"};
+		String[] matchType = {"SINGLE", "DOUBLE"};
+		String[] matchGender = {"FEMALE", "MALE", "MIXED"};
 		LocalDate nowDate = LocalDate.now();
 		Long rawCnt = courtRepository.count();
 
@@ -124,7 +125,8 @@ class DemoApplicationTests {
 			randomReservation.setMatchTime(random.ints(1, 25).findFirst().getAsInt());
 			randomReservation.setPlayTime(2);
 			randomReservation.setUsageDate(nowDate.plusDays(i));
-			randomReservation.setMatchTypeGender(matchType[random.nextInt(4)]);
+			randomReservation.setMatchTypeGender(matchGender[random.nextInt(3)]);
+			randomReservation.setMatchTypePlaying(matchType[random.nextInt(2)]);
 			randomReservation.setCourtId(courtRepository.findById(random.nextInt(rawCnt.intValue()) + 1).get());
 			reservationRepository.save(randomReservation);
 		}
