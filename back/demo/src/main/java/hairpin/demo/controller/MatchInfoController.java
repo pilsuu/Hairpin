@@ -1,8 +1,6 @@
 package hairpin.demo.controller;
 
 import hairpin.demo.dto.MatchListDTO;
-import hairpin.demo.entity.MatchInfo;
-import hairpin.demo.service.MatchInfoService;
 import hairpin.demo.service.ReservationService;
 
 import java.util.List;
@@ -19,13 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 import java.time.LocalDate;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
 @RequestMapping
 public class MatchInfoController {
-
-    @Autowired
-    private MatchInfoService matchInfoService;
 
     @Autowired
     private ReservationService reservationService;

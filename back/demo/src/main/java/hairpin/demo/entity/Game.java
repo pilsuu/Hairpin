@@ -22,7 +22,7 @@ public class Game {
     @Id
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User userId;
+    private Users_User userId;
 
     @Column(nullable = false, insertable = false, updatable = false, columnDefinition = "timestamp(6) default current_timestamp(6)")
     private LocalDateTime bookingTime;
