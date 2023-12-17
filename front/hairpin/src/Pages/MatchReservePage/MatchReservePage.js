@@ -1,13 +1,49 @@
 import React from "react";
 import Header from "../../Component/Header/Header";
 import "./MatchReservePage.css";
-import { useRecoilValue } from "recoil";
-import { matchDetailAttr } from "../../States/atoms";
-
-export default function MatchReservePage({}) {
+import { useRecoilValue, useResetRecoilState } from "recoil";
+import { isAuthenticated, matchDetailAttr, userInfo } from "../../States/atoms";
+import { useNavigate } from "react-router-dom";
+export default function MatchReservePage() {
+  const navigate = useNavigate();
   const matchData = useRecoilValue(matchDetailAttr);
   console.log("matchData: ", matchData);
 
+  const prefixURL = process.env.REACT_APP_SPRINGBOOT_URL;
+  const hasAuth = useRecoilValue(isAuthenticated);
+  const accessToken = localStorage.getItem("accessToken");
+  const userDetailInfo = useRecoilValue(userInfo);
+  const bodyForm = {
+    reservationId: matchData.reservationId,
+    userId: userDetailInfo.id,
+    gender: userDetailInfo.gender,
+  };
+  const handleReserve = async () => {
+    if (hasAuth) {
+      // console.log("userDetailInfo: ", userDetailInfo);
+      // console.log("accessTok: ", accessToken);
+      await fetch(`${prefixURL}book`, {
+        method: "POST",
+        headers: {
+          "content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(bodyForm),
+      }).then(async (res) => {
+        console.log("res: ", res);
+        // console.log("RegRes: ", parsedData);
+        if (res.status == 200) {
+          window.alert("신청 완료되었습니다");
+        } else if (res.status == 808) {
+          window.alert("이미 신청된 경기입니다");
+        } else if (res.status == 802) {
+          window.alert("경기 조건에 맞지 않습니다. 성별을 확인해주세요");
+        }
+      });
+    } else {
+      navigate("/login");
+    }
+  };
   const dateTranslator = () => {
     // 입력된 날짜를 Date 객체로 변환
     const dateObject = new Date(matchData.usageDate);
@@ -59,7 +95,7 @@ export default function MatchReservePage({}) {
                   <div className="register-button-text-wrapper">
                     <div
                       className="reg-button-text"
-                      onClick={() => alert("신청 완료")}
+                      onClick={() => handleReserve()}
                     >
                       신청하기
                     </div>
