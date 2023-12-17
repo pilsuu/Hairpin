@@ -1,0 +1,45 @@
+.group {
+  height: 62px;
+  width: 369px;
+}
+
+.group .div-wrapper {
+  height: 62px;
+}
+
+.group .overlap-group-wrapper {
+  height: 62px;
+  width: 371px;
+}
+
+.group .overlap-group {
+  background-color: #efefff;
+  border-radius: 8px;
+  height: 62px;
+  position: relative;
+  width: 369px;
+}
+
+.group .text-wrapper {
+  /* color: #a7a2ff; */
+  color: rgb(122, 122, 122);
+  font-family: "Poppins", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 26px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 20px;
+  border: none;
+  outline: none;
+  width: 300px;
+}
+
+input::placeholder {
+  color: #a7a2ff; /* 원하는 색상으로 변경 */
+}
+
+input {
+  background-color: #efefff; /* 원하는 배경 색상으로 변경 */
+}

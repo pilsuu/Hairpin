@@ -1,0 +1,15 @@
+.saly {
+    height: 556px;
+    position: relative;
+    width: 313px;
+  }
+  
+  .saly .badminton-silhouette {
+    height: 519px;
+    left: -34px;
+    object-fit: cover;
+    position: absolute;
+    top: -57px;
+    width: 380px;
+  }
+  
