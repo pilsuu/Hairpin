@@ -49,7 +49,7 @@ class DemoApplicationTests {
 	@Test
 	@Order(1)
 	void testConnection() {
-		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:50028/mydatabase", "root", "root"))
+		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:50871/mydatabase", "root", "root"))
 		{
 			System.out.println("DB connection"+con);
 //			//insert
@@ -113,7 +113,7 @@ class DemoApplicationTests {
 
 		Boolean[] isReserved = {true, false};
 		String[] matchType = {"SINGLE", "DOUBLE"};
-		String[] matchGender = {"FEMALE", "MALE", "MIXED"};
+		String[] matchGender = {"여성", "남성", "혼성"};
 		LocalDate nowDate = LocalDate.now();
 		Long rawCnt = courtRepository.count();
 
