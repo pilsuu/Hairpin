@@ -4,6 +4,7 @@ import hairpin.demo.dto.BookInfoDTO;
 import hairpin.demo.entity.Game;
 import hairpin.demo.entity.GameID;
 import hairpin.demo.entity.Reservation;
+import hairpin.demo.enumerate.Gender;
 import hairpin.demo.enumerate.MatchType;
 import hairpin.demo.repository.GameRepository;
 import hairpin.demo.repository.ReservationRepository;
@@ -54,13 +55,12 @@ public class BookingController {
                 String matchGender = reservation.getMatchTypeGender();
                 String userGender = bookInfoDTO.getGender();
 
-                if (matchGender.equals("혼성") || matchGender.equals(userGender)) {
+                if (matchGender.equals("혼성") || Gender.valueOf(userGender).getTranslation().equals(matchGender)) {
                     if (!gameRepository.existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
                         Game games = new Game();
                         games.setUserId(userRepository.getReferenceById(bookInfoDTO.getUserId()));
                         games.setReservationId(reservation);
                         gameRepository.save(games);
-                        // System.out.println("games: " + games);
                     } else {
                         return ResponseEntity.status(808).body("You are already booked");
                     }
