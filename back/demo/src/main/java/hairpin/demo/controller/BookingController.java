@@ -10,6 +10,9 @@ import hairpin.demo.repository.GameRepository;
 import hairpin.demo.repository.ReservationRepository;
 import hairpin.demo.repository.UserRepository;
 import hairpin.demo.service.ReservationService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
@@ -19,8 +22,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Objects;
 
+@Tag(name = "Reservation", description = "배드민턴 코트(경기) 예약 컨트롤러")
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization" })
 @RestController
 @RequestMapping
@@ -41,8 +44,10 @@ public class BookingController {
     @Value("${auth.api.url}")
     String apiUrl;
 
+    @SecurityRequirement(name = "Authentication")
+    @Operation(summary = "배드민턴 코트 예약 신청", description = "auth-api 서버에 유효한 사용자인지 확인 후 예약 신청을 하고, 경기 인원이 다 차면 예약 완료로 업데이트합니다.")
     @PostMapping("/book")
-    public ResponseEntity getBookInfo(@RequestHeader HttpHeaders header, @RequestBody BookInfoDTO bookInfoDTO) {
+    public ResponseEntity requestBooking(@RequestHeader HttpHeaders header, @RequestBody BookInfoDTO bookInfoDTO) {
 
         // React에서 전달한 JWT
         String jwtToken = header.getFirst("Authorization");
