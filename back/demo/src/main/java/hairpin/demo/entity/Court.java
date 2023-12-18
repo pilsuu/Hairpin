@@ -18,7 +18,7 @@ public class Court {
     @JoinColumns({
             @JoinColumn(name = "owner_id", nullable = false, updatable = false)
     })
-    private User user;
+    private Users_User user;
 
     private String name;
 

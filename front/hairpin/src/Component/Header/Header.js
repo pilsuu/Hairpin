@@ -1,10 +1,28 @@
 import React from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
-
+import { useRecoilValue, useRecoilState } from "recoil";
+import { isAuthenticated } from "../../States/atoms";
+import { logoutHandler } from "../../Pages/Auth/AuthHooks/hooks";
+import { userInfo } from "../../States/atoms";
 export default function Header() {
   const navigate = useNavigate();
+  const [hasAuth, setHasAuth] = useRecoilState(isAuthenticated);
+  const [userDetailInfo, setUserDetailInfo] = useRecoilState(userInfo);
 
+  const authCheck = () => {
+    if (!hasAuth) {
+      navigate("/login");
+    } else {
+      const logout = window.confirm("로그아웃 하시겠습니까?");
+      if (logout) {
+        logoutHandler();
+        setUserDetailInfo("");
+        setHasAuth(false);
+        window.alert("로그아웃 되었습니다");
+      }
+    }
+  };
   return (
     <div className="Header-Container">
       <div className="Search-Bar-Wrapper">
@@ -21,6 +39,7 @@ export default function Header() {
         className="User-Icon"
         alt="User Icon"
         src="https://c.animaapp.com/4IIPmODq/img/group-48@2x.png"
+        onClick={() => authCheck()}
       />
       <div className="logo-hairpin" onClick={() => navigate("/")}>
         Hairpin

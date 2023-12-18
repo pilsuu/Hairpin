@@ -80,9 +80,11 @@ function MatchItem({ time, place, gameType, gender, reservationId }) {
   const [matchDetails, setMatchDetails] = useRecoilState(matchDetailAttr);
   const id = reservationId;
 
+  const prefixURL = process.env.REACT_APP_SPRINGBOOT_URL;
+
   const request = async (reservId) => {
     let response;
-    const URL = `http://localhost:8080/match?id=${reservId}`;
+    const URL = `${prefixURL}match?id=${reservId}`;
     response = await fetch(URL, {
       method: "GET",
       headers: {

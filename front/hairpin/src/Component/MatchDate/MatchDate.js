@@ -9,9 +9,14 @@ export default function MatchDate() {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [matchLists, setMatchLists] = useRecoilState(currentDateMatches);
 
+  const prefixURL = process.env.REACT_APP_SPRINGBOOT_URL;
+  //console.log("prefix: ", prefixURL);
+
   const request = async (date) => {
     let response;
-    const URL = `http://localhost:8080/matchLists?time=${date}`;
+
+    const URL = `${prefixURL}matchLists?time=${date}`;
+    console.log("URL: ", URL);
     response = await fetch(URL, {
       method: "GET",
       headers: {

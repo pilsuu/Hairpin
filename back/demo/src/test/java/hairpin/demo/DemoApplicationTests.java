@@ -31,7 +31,7 @@ class DemoApplicationTests {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}//static
+	}// static
 
 	@Autowired
 	public UserRepository userRepository;

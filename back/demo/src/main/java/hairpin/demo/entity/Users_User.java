@@ -9,15 +9,14 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Data
-public class User {
+public class Users_User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private Integer id;
 
-    private String name;
-
     private String email;
+
+    private String password;
 
     private String gender;
 }
-
