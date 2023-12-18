@@ -2,13 +2,11 @@ package hairpin.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -19,20 +17,24 @@ public class Reservation {
     @Id
     private Integer id;
 
-    @Column(name = "date")
+    @Column(name = "date", nullable = false)
     @DateTimeFormat(pattern = "YYYY-MM-DD")
     private LocalDate usageDate;
 
     // @DateTimeFormat
+    @Column(nullable = false)
     private Integer matchTime;
 
-    @Column(columnDefinition = "int default 2")
+    @Column(columnDefinition = "int default 2", nullable = false)
     private Integer playTime;
 
+    @Column(columnDefinition = "tinyint default 0", nullable = false)
     private Boolean isReserved;
 
+    @Column(nullable = false)
     private String matchTypeGender;
 
+    @Column(nullable = false)
     private String matchTypePlaying;
 
     @ManyToOne

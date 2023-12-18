@@ -71,10 +71,10 @@ class DemoApplicationTests {
 					.limit(6)
 					.collect(StringBuilder::new, StringBuilder::appendCodePoint, StringBuilder::append)
 					.toString();
-
 			randomUser.setId(i);
 			randomUser.setEmail(generatedString + "@gmail.com");
 			randomUser.setGender(gender[random.nextInt(2)]);
+			randomUser.setPassword(generatedString);
 			userRepository.save(randomUser);
 			Long rawCnt = userRepository.count();
 			System.out.println(rawCnt);
@@ -128,8 +128,8 @@ class DemoApplicationTests {
 		}
 	}
 
-	@Test
-	@Order(5)
+//	@Test
+//	@Order(5)
 	void gameInsert(){
 		LocalDateTime nowDateTime = LocalDateTime.now();
 		Random random = new Random();

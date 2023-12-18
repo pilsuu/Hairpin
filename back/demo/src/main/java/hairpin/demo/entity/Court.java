@@ -26,5 +26,6 @@ public class Court {
 
     private Integer price;
 
+    @Column(nullable = false)
     private Boolean hasParkingLot;
 }
