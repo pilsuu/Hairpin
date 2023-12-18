@@ -4,7 +4,7 @@ import hairpin.demo.dto.BookInfoDTO;
 import hairpin.demo.entity.Game;
 import hairpin.demo.entity.GameID;
 import hairpin.demo.entity.Reservation;
-import hairpin.demo.controller.constant.ConstInfo;
+import hairpin.demo.enumerate.MatchType;
 import hairpin.demo.repository.GameRepository;
 import hairpin.demo.repository.ReservationRepository;
 import hairpin.demo.repository.UserRepository;
@@ -17,6 +17,8 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Objects;
 
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization" })
 @RestController
@@ -38,8 +40,6 @@ public class BookingController {
     @Value("${auth.api.url}")
     String apiUrl;
 
-    public ConstInfo constInfo = new ConstInfo();
-
     @PostMapping("/book")
     public ResponseEntity getBookInfo(@RequestHeader HttpHeaders header, @RequestBody BookInfoDTO bookInfoDTO) {
 
@@ -53,12 +53,9 @@ public class BookingController {
                 String matchType = reservation.getMatchTypePlaying();
                 String matchGender = reservation.getMatchTypeGender();
                 String userGender = bookInfoDTO.getGender();
-                String convertedGender = constInfo.genderConverter(userGender);
-                System.out.println("한영 변형: " + convertedGender);
 
-                if (matchGender.equals("혼성") || matchGender.equals(convertedGender)) {
-                    if (!gameRepository
-                            .existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
+                if (matchGender.equals("혼성") || matchGender.equals(userGender)) {
+                    if (!gameRepository.existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
                         Game games = new Game();
                         games.setUserId(userRepository.getReferenceById(bookInfoDTO.getUserId()));
                         games.setReservationId(reservation);
@@ -70,7 +67,7 @@ public class BookingController {
 
                     Integer numOfPeople = reservationService.getNumberOfReservations(reservation);
 
-                    if (numOfPeople == constInfo.getNum(matchType)) {
+                    if (numOfPeople == MatchType.valueOf(matchType).getNum()) {
                         reservationService.update(reservation.getId(), true);
                     }
                     return ResponseEntity.ok("book complete");
@@ -103,9 +100,6 @@ public class BookingController {
                 requestEntity,
                 String.class);
 
-        if (responseEntity.getBody().equals("0")) {
-            return true;
-        }
-        return false;
+        return responseEntity.getBody().equals("0");
     }
 }

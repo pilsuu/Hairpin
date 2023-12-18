@@ -8,7 +8,6 @@ import hairpin.demo.repository.CourtRepository;
 import hairpin.demo.repository.GameRepository;
 import hairpin.demo.repository.ReservationRepository;
 import hairpin.demo.repository.UserRepository;
-import net.bytebuddy.asm.Advice;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,7 +16,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Random;
 
 import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
@@ -49,7 +47,7 @@ class DemoApplicationTests {
 	@Test
 	@Order(1)
 	void testConnection() {
-		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:50871/mydatabase", "root", "root"))
+		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:53317/mydatabase", "root", "root"))
 		{
 			System.out.println("DB connection"+con);
 //			//insert
@@ -75,7 +73,6 @@ class DemoApplicationTests {
 					.toString();
 
 			randomUser.setId(i);
-			randomUser.setName("user" + i);
 			randomUser.setEmail(generatedString + "@gmail.com");
 			randomUser.setGender(gender[random.nextInt(2)]);
 			userRepository.save(randomUser);
@@ -111,8 +108,7 @@ class DemoApplicationTests {
 	void reservationInsert(){
 		Random random = new Random();
 
-		Boolean[] isReserved = {true, false};
-		String[] matchType = {"SINGLE", "DOUBLE"};
+		String[] matchType = {"단식", "복식"};
 		String[] matchGender = {"여성", "남성", "혼성"};
 		LocalDate nowDate = LocalDate.now();
 		Long rawCnt = courtRepository.count();
@@ -121,7 +117,7 @@ class DemoApplicationTests {
 			Reservation randomReservation = new Reservation();
 
 			randomReservation.setId(i);
-			randomReservation.setIsReserved(isReserved[random.nextInt(2)]);
+			randomReservation.setIsReserved(false);
 			randomReservation.setMatchTime(random.ints(1, 25).findFirst().getAsInt());
 			randomReservation.setPlayTime(2);
 			randomReservation.setUsageDate(nowDate.plusDays(i));
