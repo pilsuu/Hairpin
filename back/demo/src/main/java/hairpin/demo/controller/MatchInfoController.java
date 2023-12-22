@@ -43,7 +43,7 @@ public class MatchInfoController {
         return reservationService.reservationListTest(time);
     }
 
-    @Operation(summary = "예약 정보 조회",  description = "사용자가 예약 목록에서 선택한 예약 정보를 조회합니다.")
+    @Operation(summary = "예약 정보 조회", description = "사용자가 예약 목록에서 선택한 예약 정보를 조회합니다.")
     @GetMapping("/match")
     public MatchListDTO getMatchDTO(@RequestParam Integer id) {
         return reservationService.getMatch(id);

@@ -22,9 +22,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-
 @Tag(name = "Reservation", description = "배드민턴 코트(경기) 예약 컨트롤러")
-@CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization" })
+@CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization",
+        "Content-Type" }, allowCredentials = "true")
 @RestController
 @RequestMapping("/hairpin/api")
 public class BookingController {
@@ -61,7 +61,8 @@ public class BookingController {
                 String userGender = bookInfoDTO.getGender();
 
                 if (matchGender.equals("혼성") || Gender.valueOf(userGender).getTranslation().equals(matchGender)) {
-                    if (!gameRepository.existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
+                    if (!gameRepository
+                            .existsById(new GameID(bookInfoDTO.getUserId(), bookInfoDTO.getReservationId()))) {
                         Game games = new Game();
                         games.setUserId(userRepository.getReferenceById(bookInfoDTO.getUserId()));
                         games.setReservationId(reservation);
