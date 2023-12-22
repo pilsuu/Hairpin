@@ -18,7 +18,7 @@ public class Court {
     @JoinColumns({
             @JoinColumn(name = "owner_id", nullable = false, updatable = false)
     })
-    private Users_User user;
+    private User user;
 
     private String name;
 
@@ -26,5 +26,6 @@ public class Court {
 
     private Integer price;
 
+    @Column(nullable = false)
     private Boolean hasParkingLot;
 }
