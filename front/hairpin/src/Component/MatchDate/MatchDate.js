@@ -8,7 +8,6 @@ export default function MatchDate() {
   const [selectedDate, setSelectedDate] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [matchLists, setMatchLists] = useRecoilState(currentDateMatches);
-
   const prefixURL = process.env.REACT_APP_SPRINGBOOT_URL;
   //console.log("prefix: ", prefixURL);
 
@@ -47,17 +46,30 @@ export default function MatchDate() {
 
   // 화살표 클릭 시 호출되는 함수
   const handleArrowClick = (direction) => {
-    const newDate = new Date(currentDate);
     const todayDate = new Date();
-    if (direction === "prev" && todayDate.getDate() < newDate.getDate()) {
-      newDate.setDate(currentDate.getDate() - 7);
+    const fourteenDaysInMilliseconds = 14 * 24 * 60 * 60 * 1000;
+    const sevenDaysMillSec = 7 * 24 * 60 * 60 * 1000;
+    let newDate;
+
+    if (direction === "prev" && todayDate.getTime() < currentDate.getTime()) {
+      newDate = new Date(currentDate.getTime() - sevenDaysMillSec);
+      console.log("if newDate: ");
     } else if (
       direction === "next" &&
-      newDate.getDate() < todayDate.getDate() + 14
+      currentDate.getTime() < todayDate.getTime() + fourteenDaysInMilliseconds
     ) {
-      newDate.setDate(currentDate.getDate() + 7);
+      newDate = new Date(currentDate.getTime() + sevenDaysMillSec);
+    } else {
+      // 처리할 경우가 없을 때
+      return;
     }
-    setCurrentDate(newDate);
+
+    if (!isNaN(newDate.getTime())) {
+      console.log("newDate2: ", newDate);
+      setCurrentDate(newDate);
+    } else {
+      console.error("Invalid Date");
+    }
   };
 
   // 현재 날짜를 기반으로 동적으로 요일 배열 생성
