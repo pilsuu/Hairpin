@@ -18,7 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
-@CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization" })
+@CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization",
+        "Content-Type" }, allowCredentials = "true")
 @RestController
 @RequestMapping
 public class BookingController {
