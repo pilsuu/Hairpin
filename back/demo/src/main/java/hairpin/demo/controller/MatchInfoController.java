@@ -24,7 +24,7 @@ import java.time.LocalDate;
 @Tag(name = "Match", description = "배드민턴 코트(경기) 정보, 예약을 위한 컨트롤러")
 @CrossOrigin(origins = { "http://localhost:3000" })
 @RestController
-@RequestMapping
+@RequestMapping("/hairpin/api")
 public class MatchInfoController {
 
     @Autowired

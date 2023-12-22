@@ -26,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
 @Tag(name = "Reservation", description = "배드민턴 코트(경기) 예약 컨트롤러")
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization" })
 @RestController
-@RequestMapping
+@RequestMapping("/hairpin/api")
 public class BookingController {
 
     @Autowired
