@@ -26,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
 @CrossOrigin(origins = { "http://localhost:3000" }, allowedHeaders = { "Authorization",
         "Content-Type" }, allowCredentials = "true")
 @RestController
-@RequestMapping
+@RequestMapping("/hairpin/api")
 public class BookingController {
 
     @Autowired
