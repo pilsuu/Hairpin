@@ -47,12 +47,11 @@ class DemoApplicationTests {
 	@Test
 	@Order(1)
 	void testConnection() {
-		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:53317/mydatabase", "root", "root"))
-		{
-			System.out.println("DB connection"+con);
-//			//insert
-//			int executeSql = doInsert(con);
-//			System.out.println("총 "+executeSql+"행 실행했습니다.");
+		try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:59484/mydatabase", "root", "root")) {
+			System.out.println("DB connection" + con);
+			// //insert
+			// int executeSql = doInsert(con);
+			// System.out.println("총 "+executeSql+"행 실행했습니다.");
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
@@ -62,9 +61,9 @@ class DemoApplicationTests {
 	@Order(2)
 	void userInsert() {
 		Random random = new Random();
-		String[] gender = {"FEMALE", "MALE"};
+		String[] gender = { "FEMALE", "MALE" };
 
-		for(int i = 0 ; i< 10; i++){
+		for (int i = 0; i < 10; i++) {
 			User randomUser = new User();
 
 			String generatedString = random.ints(97, 123)
@@ -83,14 +82,15 @@ class DemoApplicationTests {
 
 	@Test
 	@Order(3)
-	void courtInsert(){
+	void courtInsert() {
 		Random random = new Random();
 
-		Boolean[] hasCode = {true, false};
-		String[] locationArr = {"서울특별시 관악구 신림로 31길 9", "부산광역시 식혜구 마우스로33 23", "전라남도 목포시 아름드리로20 5", "제주특별자치도 서귀포시 잠수함로 4길 65"};
+		Boolean[] hasCode = { true, false };
+		String[] locationArr = { "서울특별시 관악구 신림로 31길 9", "부산광역시 식혜구 마우스로33 23", "전라남도 목포시 아름드리로20 5",
+				"제주특별자치도 서귀포시 잠수함로 4길 65" };
 		Long rawCnt = userRepository.count();
 
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			Court randomCourt = new Court();
 
 			randomCourt.setId(i);
@@ -105,15 +105,15 @@ class DemoApplicationTests {
 
 	@Test
 	@Order(4)
-	void reservationInsert(){
+	void reservationInsert() {
 		Random random = new Random();
 
-		String[] matchType = {"단식", "복식"};
-		String[] matchGender = {"여성", "남성", "혼성"};
+		String[] matchType = { "단식", "복식" };
+		String[] matchGender = { "여성", "남성", "혼성" };
 		LocalDate nowDate = LocalDate.now();
 		Long rawCnt = courtRepository.count();
 
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			Reservation randomReservation = new Reservation();
 
 			randomReservation.setId(i);
@@ -128,20 +128,21 @@ class DemoApplicationTests {
 		}
 	}
 
-//	@Test
-//	@Order(5)
-	void gameInsert(){
+	// @Test
+	// @Order(5)
+	void gameInsert() {
 		LocalDateTime nowDateTime = LocalDateTime.now();
 		Random random = new Random();
 		Long userRawCnt = userRepository.count();
 		Long reservationRawCnt = reservationRepository.count();
 
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			Game randomGame = new Game();
 
 			randomGame.setBookingTime(nowDateTime);
 			randomGame.setUserId(userRepository.findById(random.nextInt(userRawCnt.intValue()) + 1).get());
-			randomGame.setReservationId(reservationRepository.findById(random.nextInt(reservationRawCnt.intValue()) + 1).get());
+			randomGame.setReservationId(
+					reservationRepository.findById(random.nextInt(reservationRawCnt.intValue()) + 1).get());
 			gameRepository.save(randomGame);
 		}
 	}
