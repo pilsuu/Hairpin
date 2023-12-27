@@ -71,14 +71,11 @@ export default function Navigator() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route exact path="/hairpin-front" element={<HomePage />} />
-        <Route
-          path="/hairpin-front/match-reserve"
-          element={<MatchReservePage />}
-        />
-        <Route path="/hairpin-front/intro" element={<Intro />} />
-        <Route path="/hairpin-front/login" element={<LoginPage />} />
-        <Route path="/hairpin-front/register" element={<RegisterPage />} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route path="match-reserve" element={<MatchReservePage />} />
+        <Route path="/intro" element={<Intro />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </BrowserRouter>
   );
