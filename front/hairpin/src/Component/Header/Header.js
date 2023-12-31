@@ -14,12 +14,19 @@ export default function Header() {
     if (!hasAuth) {
       navigate("/login");
     } else {
-      const logout = window.confirm("로그아웃 하시겠습니까?");
-      if (logout) {
-        logoutHandler();
-        setUserDetailInfo("");
-        setHasAuth(false);
-        window.alert("로그아웃 되었습니다");
+      const prompt = window.prompt("원하는 작업을 입력하세요");
+      if (prompt == "logout") {
+        const logout = window.confirm("로그아웃 하시겠습니까?");
+        if (logout) {
+          logoutHandler();
+          setUserDetailInfo("");
+          setHasAuth(false);
+          window.alert("로그아웃 되었습니다");
+        }
+      } else if (prompt == "generate") {
+        navigate("/generate");
+      } else if (prompt == "videoLists") {
+        navigate("/videoLists");
       }
     }
   };

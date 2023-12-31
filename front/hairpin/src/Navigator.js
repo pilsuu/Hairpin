@@ -10,6 +10,8 @@ import MatchReservePage from "./Pages/MatchReservePage/MatchReservePage";
 import { Intro } from "./Pages/IntroPage/IntroPage";
 import LoginPage from "./Pages/Auth/LoginPage/LoginPage";
 import RegisterPage from "./Pages/Auth/RegisterPage/RegisterPage";
+import { VideoGenerate } from "./Pages/VideoGenerate/VideoGenerate";
+import { VideoLists } from "./Pages/VideoLists/VideoLists";
 import { logoutHandler } from "./Pages/Auth/AuthHooks/hooks";
 import { useRecoilState } from "recoil";
 import { isAuthenticated, userInfo } from "./States/atoms";
@@ -76,6 +78,8 @@ export default function Navigator() {
         <Route path="/intro" element={<Intro />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/generate" element={<VideoGenerate />} />
+        <Route path="/videoLists" element={<VideoLists />} />
       </Routes>
     </BrowserRouter>
   );
