@@ -5,22 +5,27 @@ import { useState } from "react";
 import Header from "../../Component/Header/Header";
 import { useRecoilValue } from "recoil";
 import { userInfo } from "../../States/atoms";
+
 export const VideoGenerate = () => {
   const navigate = useNavigate();
   const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageForReq, setSelectedImageForReq] = useState(null);
   const userInform = useRecoilValue(userInfo);
-  
-  const prefixURL = process.env.REACT_APP_DJANGO_URL;
 
+  const prefixURL = process.env.REACT_APP_DJANGO_URL;
+  const accessToken = localStorage.getItem("accessToken");
+  console.log("accessToken: ", accessToken);
   const handleImageChange = (event) => {
     const file = event.target.files[0];
-
+    const formData = new FormData();
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setSelectedImage(reader.result);
       };
       reader.readAsDataURL(file);
+      formData.append("image", file);
+      setSelectedImageForReq(formData);
       //console.log("selected Image: ", selectedImage);
     }
   };
@@ -29,31 +34,33 @@ export const VideoGenerate = () => {
   const generate = async () => {
     console.log("generate");
 
-    // let response;
-    // const URL = `${prefixURL}users/generate/`;
-    // console.log("URL: ", URL);
-    // response = await fetch(URL, {
-    //   method: "POST",
-    //   headers: {
-    //     "content-Type": "application/json",
-    //     // Authorization: `Bearer ${authKey}`,
-    //   },
-    //   body: JSON.stringify(userInform.id),
-    // }).then(async (res) => {
-    //   if (res.status == 200) {
-    //     let parsedData = await res.json();
-    //     // console.log("http status: ", res.status);
-    //     console.log("ReqRes: ", parsedData);
-    //     //   return parsedData;
-    //     window.alert("비디오 생성이 완료되었습니다!");
-    //     navigate("/videoLists");
-    //   }
-    // });
-    // return response;
+    let response;
+    const URL = `${prefixURL}users/generate/`;
+    console.log("URL: ", URL);
+    response = await fetch(URL, {
+      method: "POST",
+      headers: {
+        // "Content-Type": "multipart/form-data",
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: selectedImageForReq,
+    }).then(async (res) => {
+      if (res.status == 200) {
+        let parsedData = await res.json();
+        // console.log("http status: ", res.status);
+        console.log("ReqRes: ", parsedData);
+        //   return parsedData;
+        window.alert("비디오 생성이 완료되었습니다!");
+        navigate("/videoLists");
+      }
+    });
+    return response;
   };
 
   const goToVideoLists = () => {
     console.log("videoLists");
+    // console.log("selectedImage: ", selectedImage)
+    console.log("img: ", selectedImageForReq);
     navigate("/videoLists");
   };
 
