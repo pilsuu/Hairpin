@@ -1,0 +1,278 @@
+.login {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.login .div-2 {
+  background-color: #ffffff;
+  height: 900px;
+  overflow: hidden;
+  position: relative;
+  width: 1440px;
+}
+
+.login .group-2 {
+  height: 664px;
+  left: 175px;
+  position: absolute;
+  top: 294px;
+  width: 629px;
+}
+
+.login .overlap-group-3 {
+  height: 664px;
+  position: relative;
+  width: 662px;
+}
+
+.login .group-3 {
+  height: 240px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 396px;
+}
+
+.login .group-4 {
+  height: 133px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 400px;
+}
+
+.login .text-wrapper-3 {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 50px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.login .comment {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 35px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 80px;
+  width: 396px;
+}
+
+.login .group-5 {
+  height: 54px;
+  left: 4px;
+  position: absolute;
+  top: 186px;
+  width: 312px;
+}
+
+.login .text-wrapper-4 {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 308px;
+}
+
+.login .register-here {
+  color: #4d47c3;
+  font-family: "Poppins", Helvetica;
+  font-size: 16px;
+  font-weight: 600;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+  width: 308px;
+}
+
+.login .saly-14 {
+  left: 316px !important;
+  position: absolute !important;
+  top: 108px !important;
+}
+
+.login .img {
+  height: 555px;
+  left: 282px;
+  position: absolute;
+  top: 51px;
+  width: 380px;
+}
+
+.login .group-6 {
+  height: 543px;
+  left: 892px;
+  position: absolute;
+  top: 174px;
+  width: 373px;
+}
+
+.login .group-15 {
+  left: 0 !important;
+  position: absolute !important;
+  top: 73px !important;
+}
+
+.login .group-7 {
+  height: 99px;
+  left: 0;
+  position: absolute;
+  top: 173px;
+  width: 371px;
+}
+
+.login .overlap-wrapper {
+  height: 62px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 369px;
+}
+
+.login .overlap {
+  height: 62px;
+  position: relative;
+  width: 371px;
+}
+
+.login .group-8 {
+  height: 62px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 371px;
+}
+
+.login .overlap-group-4 {
+  background-color: #efefff;
+  border-radius: 8px;
+  height: 62px;
+  position: relative;
+  width: 369px;
+}
+
+.login .text-wrapper-5 {
+  color: #a7a2ff;
+  font-family: "Poppins", Helvetica;
+  font-size: 15px;
+  font-weight: 400;
+  left: 29px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 20px;
+  width: 82px;
+}
+
+.login .invisible {
+  height: 17px;
+  left: 320px;
+  position: absolute;
+  top: 23px;
+  width: 17px;
+}
+
+.login .text-wrapper-6 {
+  color: #b0b0b0;
+  font-family: "Poppins", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  left: 250px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 79px;
+}
+
+.login .group-14 {
+  left: 0 !important;
+  position: absolute !important;
+  top: 318px !important;
+}
+
+.login .text-wrapper-7 {
+  color: #b4b4b4;
+  font-family: "Poppins", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  left: 120px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 431px;
+}
+
+.login .group-9 {
+  height: 43px;
+  left: 102px;
+  position: absolute;
+  top: 500px;
+  width: 165px;
+}
+
+.login .group-10 {
+  height: 43px;
+  position: relative;
+}
+
+.login .facebook-instance {
+  top: 2px !important;
+}
+
+.login .apple-instance {
+  height: 41px !important;
+  left: 62px !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 41px !important;
+}
+
+.login .google-instance {
+  height: 41px !important;
+  left: 124px !important;
+  position: absolute !important;
+  top: 0 !important;
+  width: 41px !important;
+}
+
+.login .text-wrapper-8 {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 30px;
+  font-weight: 500;
+  left: 0;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+}
+
+.login .logo-hairpin {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 600;
+  left: 179px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 30px;
+}

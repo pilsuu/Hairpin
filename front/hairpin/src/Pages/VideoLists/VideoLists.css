@@ -1,0 +1,82 @@
+.video-lists-page-container {
+  background-color: #ffffff;
+  display: flex;
+  /* height: 100vh; */
+  /* flex-direction: row; */
+  justify-content: center;
+  width: 100%;
+}
+
+.video-div-for-container {
+  width: 1500px;
+  left: 70px;
+  /* height: 1500px; */
+  position: relative;
+}
+
+.video-lists-container {
+  background-color: #f9f7f0;
+  /* height: 100%; */
+  left: 200px;
+  position: relative;
+  top: 60px;
+  width: 1000px;
+  border-radius: 30px;
+}
+
+.video-lists-text-wrapper {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 25px;
+  font-weight: 500;
+  left: 100px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 40px;
+  white-space: nowrap;
+  width: 184px;
+  /* z-index: 2; */
+}
+
+.video-component-wrapper {
+  margin-top: 70px;
+  width: 75%;
+  height: 100%;
+  /* background-color: aqua; */
+  left: 130px;
+  position: relative;
+  /* z-index: 1; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  /* top: 60px; */
+}
+
+.video-container {
+  /* flex-wrap: wrap; */
+  width: 330px;
+  height: 270px;
+}
+
+.video-rectangle {
+  /* background-color: #e6e6e6; */
+  height: 199px;
+  /* left: 33px; */
+  position: relative;
+  top: 33px;
+  width: 304px;
+}
+
+.video-name {
+  color: #000000;
+  font-family: "Poppins", Helvetica;
+  font-size: 20px;
+  font-weight: 500;
+  left: 30px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  top: 42px;
+  /* width: 80px; */
+}

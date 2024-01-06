@@ -1,0 +1,35 @@
+.filter-wrapper {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #d1d1d1;
+  border-radius: 30px;
+  height: 38px;
+  position: relative;
+  width: 85px;
+}
+
+.filter-text {
+  color: #7b7b7b;
+  font-family: "Poppins", Helvetica;
+  font-size: 15px;
+  font-weight: 600;
+  height: 38px;
+  left: -1px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  display: flex;
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center; /* 세로 방향 가운데 정렬 */
+  top: -1px;
+  width: 62px;
+}
+
+.filter-img {
+  height: 9px;
+  left: 52px;
+  position: absolute;
+  top: 15px;
+  width: 16px;
+}
