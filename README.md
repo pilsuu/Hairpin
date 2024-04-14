@@ -54,15 +54,21 @@
 
 ## To Start
 
-`docker run -e DB_URL=[DB_URL] \
+```bash
+docker run -e DB_URL=[DB_URL] \
 -e DB_USERNAME=[DB_USER] \
 -e DB_PASSWORD=[DB_PASSWORD] \
 -e AUTH_API_URL=[Django_API_URI] \
 -p [USER_PORT]:8080 \
-yjin9187/hairpin`
+yjin9187/hairpin
+```
 
 ## To get more information..
 
 - K8s, Terraform repositories : https://github.com/orgs/sesac-2th/repositories
 - 프로젝트 보고서 : https://drive.google.com/file/d/1Jf53DyVz5jNgf7VU5uAw635aBhUZNEai/view?usp=drive_link
 - 프로젝트 PPT : https://docs.google.com/presentation/d/1PJCy8-lDkzssVcpXvJ2lMsyW_nXV3iHR/edit?usp=drive_link&ouid=113037389217082674844&rtpof=true&sd=true
+
+```
+
+```
