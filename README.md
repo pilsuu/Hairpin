@@ -8,7 +8,7 @@
 
 ### Backend
 
-- Django : 유저 인증/인가
+- Django : 유저 인증/인가 로직
 - SpringBoot : 배드민턴 경기 관리 로직
 
 ## AWS Cloud Architecture
@@ -31,7 +31,7 @@
 
 ## Web Flow
 
-<img src="./pics/web_flow.png" height="400" weigßht="400"/>
+<img src="./pics/web_flow.png" height="400" weight="400"/>
 
 ## DB Diagram
 
