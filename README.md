@@ -25,9 +25,13 @@
 - CD : ArgoCD
   <img src="./pics/CICD_jenkins&Argo_architecture.jpeg" height="400" weight="400"/>
 
+## Terrafrom Architecture
+
+<img src="./pics/terrafrom_architecture.png" height="400" weight="400"/>
+
 ## Web Flow
 
-<img src="./pics/web_flow.png" height="400" weight="400"/>
+<img src="./pics/web_flow.png" height="400" weigßht="400"/>
 
 ## DB Diagram
 
